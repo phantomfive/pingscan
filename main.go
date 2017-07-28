@@ -1,5 +1,5 @@
 package main
-import ("fmt";"sync/atomic";"time";"os/exec")
+import ("fmt";"sync/atomic";"time";"os/exec";"os")
 
 
 var runningThreads int32 = 0
@@ -35,11 +35,12 @@ func main() {
 func probePort(a int, b int, c int, d int) {
 
 	arg := fmt.Sprintf("%d.%d.%d.%d", a, b, c, d)
-	fmt.Print(".")
+	fmt.Fprint(os.Stderr,".")
 	cmd :=exec.Command("ping", "-c", "1", "-W", "45",  arg)
 	_, e := cmd.Output()
 	if e==nil {
-		fmt.Printf("\nFound ip: %d.%d.%d.%d\n", a, b, c, d)
+		fmt.Printf("%d.%d.%d.%d\n", a, b, c, d)
+		fmt.Fprintf(os.Stderr, "\nFound ip: %d.%d.%d.%d\n", a, b, c, d)
 	}/*else {
 		fmt.Printf("err: %s    %s", out, e)
 	}*/
