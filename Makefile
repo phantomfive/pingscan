@@ -1,5 +1,5 @@
-scanner: main.go
+pingscan: main.go
 	go build
 
-run: scanner
-	time ./scanner
+run: pingscan
+	time ./pingscan

@@ -4,10 +4,9 @@ import ("fmt";"sync/atomic";"time";"os/exec";"os")
 
 var runningThreads int32 = 0
 var MAX_THREADS int32 = 300
-
 func main() {
-	var a, b, c, d int =     10, 10,   0,   0
-	var a2, b2, c2, d2 int = 10, 10, 255, 255
+   var a, b, c, d int =     10, 140, 0,   0
+	var a2, b2, c2, d2 int = 10, 140, 128, 255
 
 	for ; a <= a2; a++ {
 		for ; b <= b2; b++ {
